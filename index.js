@@ -31,7 +31,13 @@ Client.on("messageCreate", message => {
             .setTitle("Planning")
             .setAuthor("PerreteBOT")
             .setDescription("Voici le planning de la semaine !")
-            .addField("Lundi : 10H valorant")      
+            .addField("Lundi : 10H valorant") 
+            .addField("Mardi :")
+            .addField("mercredi :")
+            .setTimestamp()
+
+            message.channel.send({ embeds: [embed]});
+
     }
     
    

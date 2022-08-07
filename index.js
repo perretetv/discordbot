@@ -25,9 +25,9 @@ Client.on("messageCreate", message => {
     };
 
     //!planning
-    if(message.content === prefix + "planning"){
+    else if(message.content === prefix + "planning"){
         const embed = new Discord.MessageEmbed()
-            .setColor("#CD5C5C")
+            .setColor("#0099ff")
             .setTitle("Planning")
             .setAuthor("PerreteBOT")
             .setDescription("Voici le planning de la semaine !")

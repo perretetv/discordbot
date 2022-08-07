@@ -21,6 +21,11 @@ Client.login(process.env.TOKEN);
 Client.on("messageCreate", message => {
     if (message.author.bot) return;
 
+     //salut
+     if(message.content === prefix + "salut"){
+        message.reply("Salut !");
+     };
+
     //!twitch
     if(message.content === prefix + "twitch"){
         message.reply("https://www.twitch.tv/perretetv")

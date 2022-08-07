@@ -82,7 +82,7 @@ var data = new SlashCommandBuilder()
 
   Client.on("interactionCreate", interactio => {
     if(Discord.Interaction.isCommand()){
-      if(Discord.Interaction.commandName === "clear"){
+      if(Discord.Interaction.commandName === prefix + "clear"){
           var number = Discord.Interaction.options.getinteger("number");
 
           if(number >= 1 && number <= 100){

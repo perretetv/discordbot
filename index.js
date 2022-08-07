@@ -21,7 +21,7 @@ Client.on("messageCreate", message => {
    
     //!youtube 
     if(message.content === prefix + "youtube"){
-        message.reply("PerreteTV");
+        message.reply("https://www.youtube.com/channel/UCEw2YJ4r-8xPUQIctKASzGg");
     };
 
 
@@ -37,6 +37,7 @@ Client.on("messageCreate", message => {
            .setAuthor("PerreteBOT")
            .setDescription("Vous y trouverez la liste des commandes du bot !")
            .addField("!help", "Affiche la liste des commandes")
+           .addField("!youtube", "Affiche le lien de la chaine Youtube !")
            .setTimestamp();
            
 

@@ -37,6 +37,12 @@ Client.on("messageCreate", message => {
         message.reply("pong !");
     };
 
+    //!salut
+    if(message.content === prefix + "salut"){
+        message.reply("Salut !");
+    };
+          
+
     //!help
      if (message.content === prefix + "help"){
        const embed = new Discord.MessageEmbed()

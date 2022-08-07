@@ -70,32 +70,5 @@ Client.on("guildMemberRmove", member => {
     console.log("un membre a quitté le serveur.");
 });
 
-var data = new SlashCommandBuilder()
-     .setName("clear")
-     .setDescription("commande pour supprimer des messages")
-     .addIntegerOption(option => 
-        Option.setName("number")
-              .setDescription("Nombre de message que vous voulez supprimer")
-              .setRequired(true)
-              
-  );
-
-  Client.on("interactionCreate", interactio => {
-    if(Discord.Interaction.isCommand()){
-      if(Discord.Interaction.commandName === prefix + "clear"){
-          var number = Discord.Interaction.options.getinteger("number");
-
-          if(number >= 1 && number <= 100){
-             Discord.Interaction.channel.bulkDelete(number);
-             Discord.Interaction.reply({content: nimer + "messages correctement supprimés.", ephemeral: true})
-          }
-          else {
-              Discord.Interaction.reply({content: "Le nombre de messages supprimés doit être situé entre 1 et 100.", ephemeral: true});
-          }
-      }
-    }
-  });
-
-
   
     

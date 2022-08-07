@@ -18,6 +18,11 @@ Client.login(process.env.TOKEN);
 
 Client.on("messageCreate", message => {
     if (message.author.bot) return;
+   
+    //!youtube 
+    if(message.content === prefix + "youtube"){
+        message.reply("PerreteTV");
+    };
 
 
     //!ping
@@ -58,3 +63,4 @@ Client.on("guildMemberRmove", member => {
 });
 
   
+    

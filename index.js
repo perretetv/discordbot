@@ -57,7 +57,20 @@ Client.on("messageCreate", message => {
            
 
            message.channel.send({ embeds: [embed]});
-    }
+    };
+
+    //!planning
+      if (message.content === prefix + "planning"){
+        const embed = new Discord.MessageEmbed()
+            .setColor("#BA4A00")
+            .setTitle("Planning !")
+            .setAuthor("PerreteBOT")
+            .setDescription("Le Planning de la semaine !")
+            .addField("Lundi :")
+            .setTimestamp();
+      };
+
+
 
     if(message.content === prefix + "annonce"){
         message.channel.send("Gros live ce soir venait nombreux ! @everyone")

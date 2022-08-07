@@ -71,11 +71,7 @@ Client.on("guildMemberRmove", member => {
     console.log("un membre a quitté le serveur.");
 });
     
-     //salut
-     if(message.content === prefix + "salut"){
-        message.reply("Salut !");
-     }
-
+   
 
   
     

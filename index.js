@@ -1,3 +1,4 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const Discord = require("discord.js");
 const Client = new Discord.Client({
     intents: [
@@ -11,6 +12,7 @@ const Client = new Discord.Client({
 const prefix = "!";
 
 Client.on("ready", () => {
+   // Client.application.commands.create(data);
     console.log("bot opérationnel");
 });
 
@@ -23,23 +25,6 @@ Client.on("messageCreate", message => {
     if(message.content === prefix + "twitch"){
         message.reply("https://www.twitch.tv/perretetv")
     };
-
-    //!planning
-    else if(message.content === prefix + "planning"){
-        const embed = new Discord.MessageEmbed()
-            .setColor("#0099ff")
-            .setTitle("Planning")
-            .setAuthor("PerreteBOT")
-            .setDescription("Voici le planning de la semaine !")
-            .addField("Lundi : 10H valorant") 
-            .addField("Mardi :")
-            .addField("mercredi :")
-            .setTimestamp()
-
-            message.channel.send({ embeds: [embed]});
-
-    }
-    
    
     //!youtube 
     if(message.content === prefix + "youtube"){

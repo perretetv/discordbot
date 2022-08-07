@@ -71,7 +71,7 @@ Client.on("guildMemberRmove", member => {
 });
     
      //salut
-     if(message.content === "salut"){
+     if(message.content === prefix + "salut"){
         message.reply("Salut !");
      }
 

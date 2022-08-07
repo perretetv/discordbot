@@ -18,6 +18,22 @@ Client.login(process.env.TOKEN);
 
 Client.on("messageCreate", message => {
     if (message.author.bot) return;
+
+    //!twitch
+    if(message.content === prefix + "twitch"){
+        message.reply("https://www.twitch.tv/perretetv")
+    };
+
+    //!planning
+    if(message.content === prefix + "planning"){
+        const embed = new Discord.MessageEmbed()
+            .setColor("#CD5C5C")
+            .setTitle("Planning")
+            .setAuthor("PerreteBOT")
+            .setDescription("Voici le planning de la semaine !")
+            .addField("Lundi : 10H valorant")      
+    }
+    
    
     //!youtube 
     if(message.content === prefix + "youtube"){
@@ -38,6 +54,7 @@ Client.on("messageCreate", message => {
            .setDescription("Vous y trouverez la liste des commandes du bot !")
            .addField("!help", "Affiche la liste des commandes")
            .addField("!youtube", "Affiche le lien de la chaine Youtube !")
+           .addField("!planning","Affiche le planning !")
            .setTimestamp();
            
 
@@ -48,10 +65,9 @@ Client.on("messageCreate", message => {
         message.channel.send("Gros live ce soir venait nombreux ! @everyone")
     }
 
-    if(message.content === prefix + "twitch"){
-        message.reply("https://www.twitch.tv/perretetv !")
+   
     }
-});
+);
 
 Client.on("guildMemberAdd", member => {
     console.log("un membre est arrivé");

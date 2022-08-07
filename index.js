@@ -21,11 +21,6 @@ Client.login(process.env.TOKEN);
 Client.on("messageCreate", message => {
     if (message.author.bot) return;
 
-     //salut
-     if(message.content === prefix + "salut"){
-        message.reply("Salut !");
-     };
-
     //!twitch
     if(message.content === prefix + "twitch"){
         message.reply("https://www.twitch.tv/perretetv")
@@ -40,9 +35,10 @@ Client.on("messageCreate", message => {
     //!ping
     if(message.content === prefix + "ping"){
         message.reply("pong !");
-    }
+    };
+
     //!help
-    else if (message.content === prefix + "help"){
+     if (message.content === prefix + "help"){
        const embed = new Discord.MessageEmbed()
            .setColor("#0099ff")
            .setTitle("Liste des commandes !")

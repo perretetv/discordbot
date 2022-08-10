@@ -51,7 +51,7 @@ Client.on("interactionCreate", interaction => {
             });
         }
         else if(interaction.customId === "close-ticket"){
-            interaction.channel.setParent("1007010675551375491");
+            interaction.channel.setParent("1007030151671975966");
 
             var row = new Discord.MessageActionRow()
                     .addComponents(new Discord.MessageButton()

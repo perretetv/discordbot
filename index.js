@@ -75,7 +75,7 @@ Client.on("interactionCreate", interaction => {
             parent: "1007010449453236264",
             permissionOverwrites: [
                 {
-                    id: interaction.guild.id,
+                    id: interaction.guild.id("871825479932465192"),
                     deny: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                 },
                 {

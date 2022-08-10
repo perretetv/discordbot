@@ -79,7 +79,7 @@ Client.on("interactionCreate", interaction => {
                     deny: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                 },
                 {
-                    id: interaction.user.id,
+                    id: interaction.user.id("871824695106879529"),
                     allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                 }
             ]

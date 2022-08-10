@@ -1,3 +1,5 @@
+const fs = require("fs")
+
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const Discord = require("discord.js");
 const Client = new Discord.Client({
@@ -9,11 +11,13 @@ const Client = new Discord.Client({
     ]
 });
 
+const eventFiles = fs.readdirSync("./events").filter(file => file.endsWith(".js"))
+
 var nbTicket = 0;
 
 const prefix = "!";
 
-/*Client.on("ready", async () => {
+
     var row = new Discord.MessageActionRow()
              .addComponents(new Discord.MessageButton()
                  .setCustomId("open-ticket")
@@ -25,9 +29,7 @@ const prefix = "!";
     Client.channels.cache.get("1007010449453236264").send({content: "Appuyez sur le bouton pour ouvrir un ticket", components: [row]});
         
    
-    console.log("bot opérationnel");
-});
-*/
+ 
 
 Client.on("interactionCreate", interaction => {
     if(interaction.isButton()){
@@ -47,6 +49,16 @@ Client.on("interactionCreate", interaction => {
                 channel.send({content: "<@" + interaction.user.id + "> Voici votre ticket, vous pouvez le fermer en appuyant sur le boutton ci-dessous", components: [row]});
 
                 interaction.reply({content: "ticket correctement créé", ephemeral: true});
+
+                for (const file of eventFiles){
+                    const event =require("./events/" + file);
+                    if(event.once){
+                        Client.once(event.name, (...args) => event.execute(...args));
+                    }
+                    else{
+                        Client.on(event.name, (...args) => event.execute(...args));
+                    }
+                }
 
             });
         }

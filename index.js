@@ -70,20 +70,6 @@ Client.on("interactionCreate", interaction => {
 
             interaction.reply({content: "ticket supprimé", ephemeral: true});
         }
-
-        interaction.guild.channels.create("ticket-" + nbTicket, {
-            parent: "1007010449453236264",
-            permissionOverwrites: [
-                {
-                    id: interaction.guild.id,
-                    deny: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
-                },
-                {
-                    id: interaction.user.id,
-                    allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
-                }
-            ]
-        })
     }
 
 });

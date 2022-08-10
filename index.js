@@ -13,7 +13,7 @@ var nbTicket = 0;
 
 const prefix = "!";
 
-Client.on("ready", async () => {
+/*Client.on("ready", async () => {
     var row = new Discord.MessageActionRow()
              .addComponents(new Discord.MessageButton()
                  .setCustomId("open-ticket")
@@ -22,12 +22,35 @@ Client.on("ready", async () => {
              );
 
 
-    Client.channels.cache.get("1007010449453236264").send({content: "Appuyez sur le bouton pour ouvrir un ticket", components: [row]});     
+    Client.channels.cache.get("1007010449453236264").send({content: "Appuyez sur le bouton pour ouvrir un ticket", components: [row]});
+        
    
     console.log("bot opérationnel");
 });
+*/
 
 Client.on("interactionCreate", interaction => {
+    if(interaction.isButton()){
+        if(interaction.customId === "open-ticket"){
+            nbTicket++;
+
+            interaction.guild.channels.create("ticket-" + nbTicket, {
+               parent: "871848110807187506"
+            }).then(channel => {
+                var row = new Discord.MessageActionRow()
+                    .addComponents(new Discord.MessageButton()
+                          .setCustomId("close-ticket")
+                          .setLabel("fermer le ticket")
+                          .setStyle("DANGER")
+                          );
+
+                channel.send({content: "<@" + interaction.user.id + "> Voici votre ticket, vous pouvez le fermer en appuyant sur le boutton ci-dessous", components: [row]});
+
+                interaction.reply({content: "ticket correctement créé", ephemeral: true});
+
+            })
+        }
+    }
 
 });
 

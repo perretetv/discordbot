@@ -65,6 +65,11 @@ Client.on("interactionCreate", interaction => {
         
             interaction.reply({content: "ticket archivé", ephemeral: true});
         }
+        else if(interaction.customId === "delete-ticket"){
+            interaction.channel.delete();
+
+            interaction.reply({content: "ticket supprimé", ephemeral: true});
+        }
     }
 
 });

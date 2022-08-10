@@ -15,7 +15,7 @@ Client.on("ready", () => {
     console.log("bot opérationnel");
 });
 
-const eventFiles = fs.readdirSync("./events").filter(file => file.endsWith(".js"))
+
 
 var nbTicket = 0;
 

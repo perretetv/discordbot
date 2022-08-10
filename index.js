@@ -9,11 +9,26 @@ const Client = new Discord.Client({
     ]
 });
 
+var nbTicket = 0;
+
 const prefix = "!";
 
-Client.on("ready", () => {
-   // Client.application.commands.create(data);
+Client.on("ready", async () => {
+    var row = new Discord.MessageActionRow()
+             .addComponents(new Discord.MessageButton()
+                 .setCustomId("open-ticket")
+                 .setLabel("ouvrir un ticket")
+                 .setStyle("PRIMARY")
+             );
+
+
+    Client.channels.cache.get("1007010449453236264").send({content: "Appuyez sur le bouton pour ouvrir un ticket", components: [row]});     
+   
     console.log("bot opérationnel");
+});
+
+Client.on("interactionCreate", interaction => {
+
 });
 
 Client.login(process.env.TOKEN);
@@ -68,6 +83,9 @@ Client.on("messageCreate", message => {
             .setDescription("Le Planning de la semaine !")
             .addField("Lundi :")
             .setTimestamp();
+
+
+            message.channel.send({ embeds: [embed]})
       };
 
 
@@ -89,6 +107,7 @@ Client.on("guildMemberAdd", member => {
 Client.on("guildMemberRmove", member => {
     console.log("un membre a quitté le serveur.");
 });
+
     
    
 

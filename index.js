@@ -48,7 +48,22 @@ Client.on("interactionCreate", interaction => {
 
                 interaction.reply({content: "ticket correctement créé", ephemeral: true});
 
-            })
+            });
+        }
+        else if(interaction.customId === "close-ticket"){
+            interaction.channel.setParent("1007010675551375491");
+
+            var row = new Discord.MessageActionRow()
+                    .addComponents(new Discord.MessageButton()
+                    .setLabel("supprimer le ticket")
+                    .setStyle("DANGER")
+                    );
+
+            interaction.message.delete();
+            
+            interaction.channel.send({content: "Supprimer le ticket :", components: [row]});
+        
+            interaction.reply({content: "ticket archivé", ephemeral: true});
         }
     }
 

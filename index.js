@@ -54,15 +54,8 @@ Client.on("interactionCreate", interaction => {
 
                 interaction.reply({content: "ticket correctement créé", ephemeral: true});
 
-                for (const file of eventFiles){
-                    const event =require("./events/" + file);
-                    if(event.once){
-                        Client.once(event.name, (...args) => event.execute(...args));
-                    }
-                    else{
-                        Client.on(event.name, (...args) => event.execute(...args));
-                    }
-                }
+              
+                
 
             });
         }

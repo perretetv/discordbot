@@ -12,8 +12,7 @@ const Client = new Discord.Client({
 });
 
 Client.on("ready", () => {
-    console.log("bot opérationnel");
-});
+    
 
 
 
@@ -31,6 +30,9 @@ const prefix = "!";
 
 
     Client.channels.cache.get("1007010449453236264").send({content: "Appuyez sur le bouton pour ouvrir un ticket", components: [row]});
+
+    console.log("bot opérationnel")
+});
         
    
  

@@ -29,7 +29,7 @@ const prefix = "!";
              );
 
 
-    Client.channels.cache.get("1007010449453236264").send({content: "Appuyez sur le bouton pour ouvrir un ticket", components: [row]});
+    Client.channels.cache.get("1007254215711785061").send({content: "Appuyez sur le bouton pour ouvrir un ticket", components: [row]})       
 
     console.log("bot opérationnel")
 });

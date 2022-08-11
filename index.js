@@ -43,7 +43,7 @@ Client.on("interactionCreate", interaction => {
             nbTicket++;
 
             interaction.guild.channels.create("ticket-" + nbTicket, {
-               parent: "871848110807187506"
+               parent: "1007254107423264879"
             }).then(channel => {
                 var row = new Discord.MessageActionRow()
                     .addComponents(new Discord.MessageButton()
